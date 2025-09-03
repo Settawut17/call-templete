@@ -1,1 +1,15 @@
+name: Main CI workflow_call
+on : 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
+jobs:
+  run-build:
+    name : Call Reuseable workflow
+    uses: Settawut17/node-templete/.github/workflows/node-build-templete.yml@main # from main branch only
+    with:
+      node-version: '20' 
